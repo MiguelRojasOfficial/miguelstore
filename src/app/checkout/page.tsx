@@ -55,18 +55,22 @@ const MOCK_STORES = [
 const CART_KEY = 'cart'
 const CUSTOMER_KEY = 'checkout_customer'
 
-function loadCart(): CartItem[] {
+const isBrowser = typeof window !== 'undefined'
+
+function loadCart() {
+  if (!isBrowser) return []
   try {
-    const raw = localStorage.getItem(CART_KEY)
-    if (!raw) return []
-    return JSON.parse(raw)
+    const raw = localStorage.getItem('cart')
+    return raw ? JSON.parse(raw) : []
   } catch {
     return []
   }
 }
-function saveCart(cart: CartItem[]) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart))
+
+function saveCart(cart) {
+  if (isBrowser) localStorage.setItem('cart', JSON.stringify(cart))
 }
+
 function loadCustomer(): CustomerData {
   try {
     const raw = localStorage.getItem(CUSTOMER_KEY)
@@ -106,7 +110,7 @@ function saveCustomer(data: CustomerData) {
 export default function CheckoutPage() {
   const router = useRouter()
 
-const [cart, setCart] = useState<CartItem[]>([])
+const [cart, setCart] = useState<CartItem[] | null>(null)
 
 useEffect(() => {
   const loadedCart = loadCart()
