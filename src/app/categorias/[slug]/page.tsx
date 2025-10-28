@@ -127,7 +127,7 @@ const mockProducts: Product[] = [
 
 export default function CategoryPage() {
   const params = useParams()
-  const slug = params?.slug?.toLowerCase() || ''
+  const slug = Array.isArray(params?.slug) ? params.slug[0].toLowerCase() : params?.slug?.toLowerCase() || ''
 
   const { addToCart } = useCart()
   const [favoriteIds, setFavoriteIds] = useState<number[]>([])

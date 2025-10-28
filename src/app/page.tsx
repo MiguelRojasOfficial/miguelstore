@@ -30,7 +30,7 @@ export default function HomePage() {
   const [productos, setProductos] = useState<Product[]>([
     { id: 1, title: 'Bolsa bandolera', price: 50, image: '/images/productos/bolsa bandolera.png', slug: 'bolsa-bandolera', stock: 12, description: 'Bolsa de cuero auténtico, perfecta para cualquier ocasión.' },
     { id: 2, title: 'Bolso de tela', price: 30, image: '/images/productos/bolsa de tela.png', slug: 'bolso-de-tela', stock: 8, description: 'Bolso de tela resistente y ligero.' },
-    { id: 3, title: 'Teclado', price: 80, image: '/images/productos/teclado.png', slug: 'teclado-mecanico', stock: 5, description: 'Teclado mecánico con switches táctiles.' },
+    { id: 3, title: 'Teclado', price: 80, image: '/images/productos/teclado.png', slug: 'teclado', stock: 5, description: 'Teclado mecánico con switches táctiles.' },
     { id: 4, title: 'Peluche oso', price: 20, image: '/images/productos/peluche oso.png', slug: 'peluche-oso', stock: 15, description: 'Peluche suave y adorable para todas las edades.' },
   ])
 
