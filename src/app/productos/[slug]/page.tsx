@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Heart } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
-import { useParams } from 'next/navigation'
 
 interface Product {
   id: number
@@ -19,9 +18,12 @@ interface Product {
   description: string
 }
 
-export default function ProductPage() {
-  const params = useParams()
-  const slug = params.slug
+type ProductPageProps = {
+  params: { slug: string }
+}
+
+export default function ProductPage({ params }: ProductPageProps) {
+  const { slug } = params
   const { addToCart } = useCart()
   const [product, setProduct] = useState<Product | null>(null)
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([])
