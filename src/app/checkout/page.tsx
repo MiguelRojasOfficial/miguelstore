@@ -26,7 +26,6 @@ type CustomerData = {
   privacidad: boolean
 }
 
-/* ---------- Mock datos de ubicación / tiendas ---------- */
 const DEPARTAMENTOS = [
   {
     id: 'lima',
@@ -123,7 +122,7 @@ useEffect(() => {
 
   const subtotal = useMemo(() => (cart ?? []).reduce((s, it) => s + it.price * it.quantity, 0), [cart])
 
-  const shipping = 0
+  const shipping: number = 0
   const total = subtotal + shipping
 
   const updateQuantity = (item: CartItem, qty: number) => {
