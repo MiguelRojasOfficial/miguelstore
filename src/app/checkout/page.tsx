@@ -128,12 +128,12 @@ useEffect(() => {
 
   const updateQuantity = (item: CartItem, qty: number) => {
     if (qty <= 0) {
-      setCart(prev => prev.filter(p => p.id !== item.id))
+      setCart(prev => (prev ? prev.filter(p => p.id !== item.id) : []))
       return
     }
-    setCart(prev => prev.map(p => (p.id === item.id ? { ...p, quantity: qty } : p)))
+    setCart(prev => (prev ? prev.map(p => (p.id === item.id ? { ...p, quantity: qty } : p)) : []))
   }
-  const removeItem = (item: CartItem) => setCart(prev => prev.filter(p => p.id !== item.id))
+  const removeItem = (item: CartItem) => setCart(prev => (prev ? prev.filter(p => p.id !== item.id) : []))
   const [expandedStep, setExpandedStep] = useState<1 | 2 | 3>(1)
   const [customer, setCustomer] = useState<CustomerData>(() => loadCustomer())
 
