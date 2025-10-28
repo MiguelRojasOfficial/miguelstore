@@ -51,7 +51,6 @@ const MOCK_STORES = [
   { id: 's3', name: 'Tienda Cusco Centro', address: 'Jr. Sarmiento 45', dept: 'Cusco', prov: 'Provincia del Cusco', dist: 'Cusco', freeFrom: 0, hours: '9:00 - 18:00' },
 ]
 
-/* ---------- Helpers localStorage ---------- */
 const CART_KEY = 'cart'
 const CUSTOMER_KEY = 'checkout_customer'
 
@@ -173,7 +172,6 @@ useEffect(() => {
 
   const [paymentMethod, setPaymentMethod] = useState<'tarjeta' | 'efectivo' | 'agencias' | ''>('')
   const [cardData, setCardData] = useState({
-    number: '',
     holder: '',
     month: '',
     year: '',
