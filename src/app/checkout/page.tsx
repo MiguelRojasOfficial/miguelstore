@@ -106,7 +106,7 @@ function saveCustomer(data: CustomerData) {
 export default function CheckoutPage() {
   const router = useRouter()
 
-const [cart, setCart] = useState<CartItem[] | null>(null)
+const [cart, setCart] = useState<CartItem[]>([])
 
 useEffect(() => {
   const loadedCart = loadCart()
