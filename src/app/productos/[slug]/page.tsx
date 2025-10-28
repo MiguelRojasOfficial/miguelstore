@@ -17,13 +17,12 @@ interface Product {
   stock: number
   description: string
 }
-
 type ProductPageProps = {
   params: { slug: string }
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const { slug } = params
+export default function ProductPage({ params }: any) {
+  const { slug } = params as { slug: string }
   const { addToCart } = useCart()
   const [product, setProduct] = useState<Product | null>(null)
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([])
